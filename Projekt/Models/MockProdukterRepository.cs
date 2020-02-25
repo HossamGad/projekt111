@@ -17,14 +17,14 @@ namespace Projekt.Models
                 new Produkter {ProduktId = 3, Name="Hem Tillbehör", Price=15.95M, ShortDescription="Missoni Home", LongDescription="Innovativ svetsningsprodukt som är bättre för miljön och hälsosammare för installatören.", Category = _categoryRepository.AllCategories.ToList()[0],ImageUrl="https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpie.jpg", InStock=true, ProductOfTheWeek=true, ImageThumbnailUrl="https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpiesmall.jpg"},
             };
 
-        public IEnumerable<Produkter> ProductOfTheWeek { get; }
+        //public IEnumerable<Produkter> ProductOfTheWeek { get; }
 
        
 
 
-        public Produkter GetPieById(int pieId)
+        public Produkter GetProductById(int ProduktId)
         {
-            return AllProdukter.FirstOrDefault(p => p.ProduktId == pieId);
+            return AllProdukter.FirstOrDefault(p => p.ProduktId == ProduktId);
         }
     }
 }

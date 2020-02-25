@@ -11,16 +11,17 @@ namespace Projekt.Models
 {
 	public class AppDbContext: IdentityDbContext<IdentityUser>
     {
-		public AppDbContext(DbContextOptions<AppDbContext> option) : base(option)
+		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{
 
 
 		}
-		public DbSet<Produkter>Produkter { get; set; }
+        
+        public DbSet<NyProdukt> DbNyProdukt { get; set; }
+
+        public DbSet<Produkter> Produkter { get; set; }
 		public DbSet<Category> Categories { get; set; }
-        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+      
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -115,7 +116,7 @@ namespace Projekt.Models
                 ShortDescription = "Aura Marengo Blank ",
                 LongDescription =
                    "En slitstark och vacker klinker i grå nyanser och naturliga marmoreringar. ",
-                CategoryId = 1,
+                CategoryId = 3,
                 ImageUrl = "https://www.systerlycklig.se/images/2.199538/sandberg-tapet-hannes-morkbla.jpeg",
                 ImageThumbnailUrl = "https://www.systerlycklig.se/images/2.199538/sandberg-tapet-hannes-morkbla.jpeg",
             });
@@ -127,7 +128,7 @@ namespace Projekt.Models
                 ShortDescription = "Alvesta Assos Grey Matt",
                 LongDescription =
                    "marmorerad granitkeramik i grå nyanser. Dramatiskt mönster med känsla av mörka moln som hopar sig. ",
-                CategoryId = 2,
+                CategoryId = 1,
                 ImageUrl = "https://www.systerlycklig.se/images/2.199595/sandberg-tapet-hannes-svart.jpeg",
                 ImageThumbnailUrl = "https://www.systerlycklig.se/images/2.199595/sandberg-tapet-hannes-svart.jpeg",
             });
@@ -139,7 +140,7 @@ namespace Projekt.Models
                 ShortDescription = "Marquina ",
                 LongDescription =
                    " slät yta och marmor-känsla. Ger en exklusiv och vacker vägg. ",
-                CategoryId = 3,
+                CategoryId = 2,
                 ImageUrl = "https://cdn.cdon.com/media-dynamic/images/product/kidsbaby/kidsbabydefault/image838/kakel_d-sign_metro_marquina_10x20-49323698-69612507-xtra1.jpg",
                 ImageThumbnailUrl = "https://cdn.cdon.com/media-dynamic/images/product/kidsbaby/kidsbabydefault/image838/kakel_d-sign_metro_marquina_10x20-49323698-69612507-xtra1.jpg",
             });

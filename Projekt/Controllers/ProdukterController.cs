@@ -13,22 +13,52 @@ namespace Projekt.Controllers
 	public class ProdukterController : Controller
 	{
 
-		private readonly IProdukterRepository _produkterRepository;
-		private readonly ICategoryRepository _categoryRepository;
+        private readonly IProdukterRepository _produkterRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        //private readonly ICommentary _commentaryRepository;
 
-		public ProdukterController(IProdukterRepository ProdkterRepository, ICategoryRepository categoryRepository)
-		{
-			_produkterRepository = ProdkterRepository;
-			_categoryRepository = categoryRepository;
-		}
-		
-		public ViewResult List()
-		{
-			ProdukterListViewModel produkterListViewModel = new ProdukterListViewModel();
-			produkterListViewModel.Produkter = _produkterRepository.AllProdukter;
+        public ProdukterController(IProdukterRepository produkterRepository, ICategoryRepository categoryRepository)
+        {
+            _produkterRepository = produkterRepository;
+            _categoryRepository = categoryRepository;
+           // _commentaryRepository = commentaryRepository;
+        }
 
-			produkterListViewModel.CurrentCategory = "Produkter";
-			return View(produkterListViewModel);
-		}
-	}
+
+        public ViewResult List(string category)
+        {
+            IEnumerable<Produkter> produkter;
+            string currentCategory;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                produkter = _produkterRepository.AllProdukter.OrderBy(p => p.ProduktId);
+                currentCategory = " ";
+            }
+            else
+            {
+                produkter = _produkterRepository.AllProdukter.Where(p => p.Category.CategoryName == category)
+                    .OrderBy(p => p.ProduktId);
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+            }
+
+            return View(new ProdukterListViewModel
+            {
+                Produkter = produkter,
+                CurrentCategory = currentCategory
+            });
+        }
+
+
+        public IActionResult Details(int id)
+        {
+            var produkter = _produkterRepository.GetPieById(id);
+            if (produkter == null)
+                return NotFound();
+
+            
+
+            return View(produkter);
+        }
+    }
 }

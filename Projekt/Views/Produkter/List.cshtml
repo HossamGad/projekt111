@@ -1,20 +1,11 @@
 ﻿@model ProdukterListViewModel
 
-    <h1>@Model.CurrentCategory</h1>
+<h1>@Model.CurrentCategory</h1>
 
-    <div>
-        @foreach (var Produkter in Model.Produkter)
-        {<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-        <img src="@Produkter.ImageThumbnailUrl" alt="">
-        <div class="caption">
-            <h3 class="pull-right">@Produkter.Price.ToString("c")</h3>
-            <h3>
-                <a>@Produkter.Name</a>
-            </h3>
-            <p>@Produkter.ShortDescription</p>
-         </div>
-       </div>
-    </div>
-        }
-    </div>
+<h1 class="col-xs-pull-6">Produkter</h1>
+
+@foreach (var produkter in Model.Produkter)
+{
+    <partial name="_ProduktCard" model="produkter" />
+}
+

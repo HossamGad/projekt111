@@ -33,9 +33,9 @@ namespace Projekt
 
 			services.AddScoped<ICategoryRepository, CategoryRepository>();
 			services.AddScoped<IProdukterRepository, PodukterRepository>();
-			services.AddScoped<IOrderRepository, OrderRepository>();
-			services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+			services.AddScoped<INyProduktRepository, NyProduktRepository>();
 
+			
 			services.AddHttpContextAccessor();
 			services.AddSession();
 

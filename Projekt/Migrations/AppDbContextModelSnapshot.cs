@@ -481,7 +481,7 @@ namespace Projekt.Migrations
                         new
                         {
                             ProduktId = 7,
-                            CategoryId = 1,
+                            CategoryId = 3,
                             ImageThumbnailUrl = "https://www.systerlycklig.se/images/2.199538/sandberg-tapet-hannes-morkbla.jpeg",
                             ImageUrl = "https://www.systerlycklig.se/images/2.199538/sandberg-tapet-hannes-morkbla.jpeg",
                             InStock = false,
@@ -495,7 +495,7 @@ namespace Projekt.Migrations
                         new
                         {
                             ProduktId = 8,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             ImageThumbnailUrl = "https://www.systerlycklig.se/images/2.199595/sandberg-tapet-hannes-svart.jpeg",
                             ImageUrl = "https://www.systerlycklig.se/images/2.199595/sandberg-tapet-hannes-svart.jpeg",
                             InStock = false,
@@ -509,7 +509,7 @@ namespace Projekt.Migrations
                         new
                         {
                             ProduktId = 9,
-                            CategoryId = 3,
+                            CategoryId = 2,
                             ImageThumbnailUrl = "https://cdn.cdon.com/media-dynamic/images/product/kidsbaby/kidsbabydefault/image838/kakel_d-sign_metro_marquina_10x20-49323698-69612507-xtra1.jpg",
                             ImageUrl = "https://cdn.cdon.com/media-dynamic/images/product/kidsbaby/kidsbabydefault/image838/kakel_d-sign_metro_marquina_10x20-49323698-69612507-xtra1.jpg",
                             InStock = false,

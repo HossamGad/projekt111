@@ -8,7 +8,7 @@ namespace Projekt.Models
 	public interface IProdukterRepository
 	{
 		IEnumerable<Produkter> AllProdukter { get; }
-		IEnumerable<Produkter> ProductOfTheWeek { get; }
-		Produkter GetPieById(int pieId);
+		//IEnumerable<Produkter> ProductOfTheWeek { get; }
+		Produkter GetProductById(int pieId);
 	}
 }

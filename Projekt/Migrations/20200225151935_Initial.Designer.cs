@@ -10,8 +10,8 @@ using Projekt.Models;
 namespace Projekt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200225142921_new")]
-    partial class @new
+    [Migration("20200225151935_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

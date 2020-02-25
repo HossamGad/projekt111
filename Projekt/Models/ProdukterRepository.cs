@@ -31,7 +31,7 @@ namespace Projekt.Models
 			}
 
 		}
-	public Produkter GetPieById(int ProduktId)
+	public Produkter GetProductById(int ProduktId)
 		{
 			return _appDbContext.Produkter.FirstOrDefault(p => p.ProduktId == ProduktId);
 		}
