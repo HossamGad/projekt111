@@ -1,0 +1,30 @@
+﻿@model NyProdukt
+
+
+    <form asp-action="NyProdukt" method="post">
+        <h4> Your Product </h4>
+        <div>
+            <input asp-for="ProduktId" value="@Context.Request.Query["ProduktId"]" type="hidden" />
+        </div>
+        <!---
+    <div>
+        <label asp-for="CommentId">CommentId:</label>
+        <input asp-for="CommentId" value="@ViewBag.ProduktId" />
+    </div>
+        -->
+        <div>
+            <label asp-for="Name">Write the of the product:</label>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Text">Description</label>
+            <input asp-for="Text" />
+        </div>
+        <div>
+            <label asp-for="Price">Price</label>
+            <input asp-for="Price" />
+        </div>
+        <div>
+            <input type="submit" value="Complete" />
+        </div>
+    </form>

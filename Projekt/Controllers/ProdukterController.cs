@@ -52,7 +52,7 @@ namespace Projekt.Controllers
 
         public IActionResult Details(int id)
         {
-            var produkter = _produkterRepository.GetPieById(id);
+            var produkter = _produkterRepository.GetProductById(id);
             if (produkter == null)
                 return NotFound();
 

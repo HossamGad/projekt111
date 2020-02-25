@@ -10,6 +10,7 @@ namespace Projekt.Models
 	{
         [Key]
         public int CategoryId { get; set; }
+        public int ProduktId { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
         public double Price { get; set; }

@@ -8,6 +8,6 @@ namespace Projekt.Models
 	public interface ICategoryRepository
 	{
 		IEnumerable<Category> AllCategories { get; }
-		Category GetCategoryById(int CategoryId);
+		Category GetProductById(int CategoryId);
 	}
 }

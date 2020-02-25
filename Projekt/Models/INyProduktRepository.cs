@@ -12,12 +12,12 @@ namespace Projekt.Models
 
         IEnumerable<NyProdukt> GetAllNewProduct();
         IEnumerable<NyProdukt> GetNewProductByProductId(int CategoryId);
+        IEnumerable<NyProdukt> GetNewProductById(int ProduktId);
+
         IEnumerable<NyProdukt> GetNewProductByProductName(string Name);
         IEnumerable<NyProdukt> GetNewProductByProductText(string Text);
-        IEnumerable<NyProdukt> GetNewProductByProductPrice(decimal Price);
+        IEnumerable<NyProdukt> GetNewProductByProductPrice(float Price);
                
         void CreateNewProductAndAddToDatabase(NyProdukt nyProdukt);
-
-        
     }
 }

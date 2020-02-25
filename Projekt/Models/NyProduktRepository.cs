@@ -33,14 +33,22 @@ namespace Projekt.Models
         {
             return database.DbNyProdukt.Where(c => c.Name == Name);
         }
+        public IEnumerable<NyProdukt> GetNewProductById(int ProduktId)
+        {
+            return database.DbNyProdukt.Where(c => c.ProduktId == ProduktId);
+        }
         public IEnumerable<NyProdukt> GetNewProductByProductText(string Text)
         {
             return database.DbNyProdukt.Where(c => c.Text == Text);
         }
-       
+        
+            public IEnumerable<NyProdukt> GetNewProductByProductPrice(float Price)
+        {
+            return database.DbNyProdukt.Where(c => c.Price == Price);
+        }
 
         // lägg till ny kommentar
-        public void CreateProductAndAddToDatabase(NyProdukt nyProdukt)
+        public void CreateNewProductAndAddToDatabase(NyProdukt nyProdukt)
         {
             database.DbNyProdukt.Add(nyProdukt);
             database.SaveChanges();
@@ -48,7 +56,7 @@ namespace Projekt.Models
         }
 
        
-        public IEnumerable<NyProdukt> CreateNewProductAndAddToDatabase(int CategoryId)
+        public IEnumerable<NyProdukt> GetNewProductByProductId(int CategoryId)
         {
             return database.DbNyProdukt.Where(p => p.CategoryId == CategoryId);
         }

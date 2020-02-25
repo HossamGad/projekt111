@@ -16,7 +16,7 @@ namespace Projekt.Models
         }
 
         public IEnumerable<Category> AllCategories => _appDbContext.Categories;
-        public Category GetCategoryById(int CategoryId)
+        public Category GetProductById(int CategoryId)
         {
             return _appDbContext.Categories.FirstOrDefault(p => p.CategoryId == CategoryId);
         }

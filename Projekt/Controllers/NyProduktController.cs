@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Projekt.Models;
 
@@ -9,22 +10,23 @@ using Projekt.Models;
 
 namespace Projekt.Controllers
 {
-	public class NyProduktController : Controller
+    [Authorize]
+    public class NyProduktController : Controller
 	{
         private readonly INyProduktRepository _NyProduktRepository;
-        private readonly IProdukterRepository _produkterRepository;
+        private readonly IProdukterRepository _ProdukterRepository;
 
         public NyProduktController(INyProduktRepository NyProduktRepository, IProdukterRepository produkterRepository)
         {
             _NyProduktRepository = NyProduktRepository;
-            _produkterRepository = produkterRepository;
+            _ProdukterRepository = produkterRepository;
         }
 
-        public IActionResult CommentaryD(int CategoryId)
+        public IActionResult NyProdukt(int ProduktId)
         {
             NyProdukt nyProdukt = new NyProdukt();
-            var Category = _produkterRepository.GetProduktById(CategoryId);
-            nyProdukt.CategoryId = Category.CategoryId;
+            var Produkt = _ProdukterRepository.GetProductById(ProduktId);
+            nyProdukt.ProduktId = Produkt.ProduktId;
 
 
 
@@ -32,28 +34,28 @@ namespace Projekt.Controllers
         }
 
         [HttpPost]
-        public IActionResult CommentaryD(NyProdukt newCommentary)
+        public IActionResult NyProdukt(NyProdukt nyProdukt)
         {
 
 
-            if (newCommentary.CommentMessage == "")
+            if (nyProdukt.Name == "")
             {
-                ModelState.AddModelError("", "Please insert Your Review is empty");
+                ModelState.AddModelError("", "Please insert the of the product");
             }
 
             if (ModelState.IsValid)
             {
 
-                _CommentaryRepository.CreateCommentUpdateDatabase(newCommentary);
-                return RedirectToAction("ReviewComplete");
+                _NyProduktRepository.CreateNewProductAndAddToDatabase(nyProdukt);
+                return RedirectToAction("Complete");
             }
 
-            return View(newCommentary);
+            return View(nyProdukt);
         }
 
-        public IActionResult ReviewComplete()
+        public IActionResult Complete()
         {
-            ViewBag.ReviewCompleteMessage = "Thank you";
+            ViewBag.Complete = "Thank you";
             return View();
         }
     }

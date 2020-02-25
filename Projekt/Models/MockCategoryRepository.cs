@@ -14,7 +14,7 @@ namespace Projekt.Models
                 new Category{CategoryId=2, CategoryName="Mattor", Description="Mattor passar till allt"},
                 new Category{CategoryId=3, CategoryName="Tillbehör", Description="Alla tillbehör som behövs"}
             };
-        public Category GetCategoryById(int CategoryId)
+        public Category GetProductById(int CategoryId)
         {
             return AllCategories.FirstOrDefault(p => p.CategoryId == CategoryId);
         }
