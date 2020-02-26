@@ -11,7 +11,7 @@ namespace Projekt.ViewModels
 		public Produkter ProductDetail { get; set; }
 
 		public Produkter ProduktId { get; set; }
-		//public List<Commentary> CommentaryList { get; set; }
+		public List<NyProdukt> Nyproduktlist { get; set; }
 
 
 		public string GradeAverage { get; set; }

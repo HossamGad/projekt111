@@ -21,5 +21,7 @@ namespace Projekt.Models
         public Category Category { get; set; }
         public bool ProductOfTheWeek { get; internal set; }
         public bool IsProductOfTheWeek { get; set; }
+        public List<NyProdukt> Nyproduktlist { get; set; }
+
     }
 }

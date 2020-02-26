@@ -56,9 +56,13 @@ namespace Projekt.Controllers
             if (produkter == null)
                 return NotFound();
 
-            
+          /*  var Nyprodukt = _NyProduktRepository.GetCommentaryByPieId(id).ToList();
+
+            pie.CommentaryList = comment;*/
 
             return View(produkter);
         }
     }
-}
+    
+    }
+
