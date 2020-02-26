@@ -22,7 +22,7 @@ namespace Projekt.Controllers
             _ProdukterRepository = produkterRepository;
         }
 
-        public IActionResult NyProdukt(int ProduktId)
+        public IActionResult NyProdukt1(int ProduktId)
         {
             NyProdukt nyProdukt = new NyProdukt();
             var Produkt = _ProdukterRepository.GetProductById(ProduktId);
@@ -34,7 +34,7 @@ namespace Projekt.Controllers
         }
 
         [HttpPost]
-        public IActionResult NyProdukt(NyProdukt nyProdukt)
+        public IActionResult NyProdukt1(NyProdukt nyProdukt)
         {
 
 
